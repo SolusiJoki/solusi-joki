@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SolusiJoki.ID - Joki Skripsi Jurnal & Kebutuhan IT</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS Animation -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+        background: #f8f9fa;
+      }
+      /* Navbar */
+      .navbar {
+        transition: all 0.3s ease;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .navbar.scrolled {
+        background: #fff !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+      }
+      .navbar-brand {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+      }
+      .nav-link {
+        color: #333 !important;
+        margin-right: 12px;
+        transition: color 0.2s;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: #4facfe !important;
+      }
+      /* Hero */
+      .hero {
+        background: linear-gradient(120deg, #f3eaff 0%, #fff 100%);
+        color: #232526;
+        padding: 140px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 24px;
+      }
+      .hero .btn {
+        font-size: 1.1rem;
+        padding: 12px 32px;
+        border-radius: 30px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      /* Section Title */
+      h2.section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #4facfe;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+      }
+      /* Services */
+      .service-card {
+        transition: 0.3s;
+        border: none;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      }
+      .service-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.12);
+      }
+      .service-card i {
+        font-size: 2.5rem;
+        margin-bottom: 18px;
+      }
+      /* Why Us */
+      .why-card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        padding: 32px 18px;
+        margin-bottom: 0;
+        transition: 0.3s;
+      }
+      .why-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      .why-card i {
+        font-size: 2.2rem;
+        margin-bottom: 14px;
+      }
+      /* Portofolio */
+      .card {
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+        border: none;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      .card-img-top {
+        border-radius: 18px 18px 0 0;
+        object-fit: cover;
+        height: 200px;
+      }
+      /* Testimoni */
+      #carouselTestimoni {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .carousel-item {
+        padding: 32px 0;
+      }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-color: #4facfe;
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      /* CTA */
+      .cta {
+        background: linear-gradient(120deg, #7f7fd5 0%, #91eac9 100%);
+        color: #232526;
+        padding: 80px 0;
+        text-align: center;
+        border-radius: 0 0 32px 32px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      }
+      .cta .btn {
+        font-size: 1.1rem;
+        padding: 12px 32px;
+        border-radius: 30px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      }
+      /* Kontak */
+      #kontak .fa-whatsapp,
+      #kontak .fa-envelope,
+      #kontak .fa-location-dot {
+        font-size: 1.3rem;
+        margin-right: 8px;
+      }
+      /* Footer */
+      footer {
+        background: #f3eaff;
+        color: #7f7fd5;
+        padding: 20px 0;
+        text-align: center;
+        border-radius: 0 0 18px 18px;
+        margin-top: 32px;
+      }
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.1rem;
+        }
+        .card-img-top {
+          height: 140px;
+        }
+        .service-card,
+        .why-card {
+          padding: 24px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm py-3" style="border-radius: 0 0 18px 18px; transition: all 0.3s;">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#" style="font-size: 1.7rem; letter-spacing: 1.5px; color: #111;">
+                <img src="logo2.png" alt="SolusiJoki.Id Logo" style="height: 72px; margin-right: 10px; vertical-align: middle;" />
+                <span style="font-weight: 800;">SOLUSI</span><span style="color: #1f6feb; font-weight: 800;">JOKI</span><span style="font-size: 1.7rem; text-transform: uppercase; color: #1f6feb;">.ID</span>
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#home" style="color: #232526;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#layanan" style="color: #232526;">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#alasan" style="color: #232526;">Kenapa Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#portofolio" style="color: #232526;">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#testimoni" style="color: #232526;">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#kontak" style="color: #232526;">Kontak</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="https://wa.me/628123456789" target="_blank" class="btn btn-sm" style="background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%); color: #232526; font-weight: 600; border-radius: 24px; box-shadow: 0 2px 8px rgba(127,127,213,0.09); letter-spacing: 1px; border: none;">
+                            <i class="fab fa-whatsapp me-1"></i> WhatsApp
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section
+      class="hero"
+      id="home"
+      style="
+        background: linear-gradient(120deg, #f3eaff 0%, #fff 100%);
+        color: #232526;
+        position: relative;
+        overflow: hidden;
+        padding: 140px 0 100px;
+      "
+    >
+      <div
+        class="container position-relative"
+        data-aos="fade-up"
+        style="z-index: 2"
+      >
+        <div class="mx-auto" style="max-width: 650px">
+          <h1
+            class="fw-bold display-5 mb-3"
+            style="
+              letter-spacing: 1px;
+              text-shadow: 0 4px 24px rgba(127, 127, 213, 0.08);
+            "
+          >
+            <span style="color: #7f7fd5">Butuh Bantuan</span> Skripsi, Laporan,
+            atau Tugas Kuliah?
+          </h1>
+          <p class="lead mb-4" style="color: #555">
+            Kami siap membantu dengan
+            <span class="fw-semibold" style="color: #7f7fd5">cepat</span>,
+            <span class="fw-semibold" style="color: #7f7fd5">rapi</span>, dan
+            <span class="fw-semibold" style="color: #7f7fd5">profesional</span>.
+          </p>
+          <a
+            href="https://wa.me/6281385393182"
+            class="btn btn-lg px-5 py-3"
+            style="
+              background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%);
+              color: #232526;
+              font-weight: 600;
+              border-radius: 32px;
+              box-shadow: 0 4px 24px rgba(127, 127, 213, 0.13);
+              letter-spacing: 1px;
+              border: none;
+            "
+          >
+            <i class="fab fa-whatsapp me-2"></i> Hubungi via WhatsApp
+          </a>
+        </div>
+        <!-- Decorative shapes -->
+        <div
+          style="
+            position: absolute;
+            left: -80px;
+            top: -80px;
+            width: 220px;
+            height: 220px;
+            background: rgba(127, 127, 213, 0.13);
+            border-radius: 50%;
+            z-index: 1;
+          "
+        ></div>
+        <div
+          style="
+            position: absolute;
+            right: -60px;
+            bottom: -60px;
+            width: 160px;
+            height: 160px;
+            background: rgba(145, 234, 201, 0.13);
+            border-radius: 50%;
+            z-index: 1;
+          "
+        ></div>
+      </div>
+    </section>
+
+    <!-- Profil Tim Start -->
+    <section id="profil-tim" class="py-5" style="background: #f8f9fa;">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5" style="color: #7f7fd5; letter-spacing: 1px;">
+        Profil Tim Kami
+        </h2>
+        <div class="row justify-content-center g-5 align-items-center">
+        <!-- Anggota 1 -->
+        <div class="col-md-6 d-flex flex-column align-items-center" data-aos="fade-right">
+            <div class="position-relative" style="width:180px; height:240px;">
+            <img src="user.jpg" alt="Ardian Pramana Putra"
+                style="width:180px; height:240px; object-fit:cover; border-radius:18px; box-shadow:0 4px 24px rgba(127,127,213,0.13); border:4px solid #7f7fd5;">
+            <!-- Penunjuk garis ke bio -->
+            <svg width="100" height="60" style="position:absolute; left:100%; top:60%; z-index:2;" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="0,30 80,30 95,55" style="fill:none;stroke:#7f7fd5;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"/>
+                <circle cx="95" cy="55" r="5" fill="#7f7fd5"/>
+            </svg>
+            </div>
+            <div class="mt-4 ms-md-5 ps-md-4" style="background:#fff; border-radius:16px; box-shadow:0 2px 12px rgba(127,127,213,0.07); padding:24px 20px 20px 32px; min-width:270px; position:relative;">
+            <h5 class="fw-bold mb-1" style="color:#232526;">Ardian Pramana Putra</h5>
+            <div class="mb-2" style="color:#7f7fd5; font-weight:600;">Web Developer</div>
+            <p class="mb-3" style="color:#555;">
+                Spesialis pembuatan sistem prediksi, Point of Sale (POS), klasifikasi data, GIS (Geographic Information System), dan penjadwalan. Berpengalaman dalam pengembangan aplikasi skripsi, tugas akhir, serta sistem informasi berbasis web.
+            </p>
+            <a href="https://wa.me/628123456789" target="_blank" class="btn btn-sm px-4 py-2" style="background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%); color: #232526; font-weight: 600; border-radius: 24px; box-shadow: 0 2px 8px rgba(127,127,213,0.09); letter-spacing: 1px; border: none;">
+                <i class="fab fa-whatsapp me-1"></i> Hubungi via WhatsApp
+            </a>
+            </div>
+        </div>
+        <!-- Anggota 2 -->
+        <div class="col-md-6 d-flex flex-column align-items-center" data-aos="fade-left">
+            <div class="position-relative" style="width:180px; height:240px;">
+            <img src="user2.jpg" alt="Rizky Maulana"
+                style="width:180px; height:240px; object-fit:cover; border-radius:18px; box-shadow:0 4px 24px rgba(127,127,213,0.13); border:4px solid #7f7fd5;">
+            <!-- Penunjuk garis ke bio -->
+            <svg width="100" height="60" style="position:absolute; right:100%; top:60%; transform:scaleX(-1); z-index:2;" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="0,30 80,30 95,55" style="fill:none;stroke:#7f7fd5;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"/>
+                <circle cx="95" cy="55" r="5" fill="#7f7fd5"/>
+            </svg>
+            </div>
+            <div class="mt-4 me-md-5 pe-md-4" style="background:#fff; border-radius:16px; box-shadow:0 2px 12px rgba(127,127,213,0.07); padding:24px 32px 20px 20px; min-width:270px; position:relative;">
+            <h5 class="fw-bold mb-1" style="color:#232526;">Ramadhani Al Ikhsan</h5>
+            <div class="mb-2" style="color:#7f7fd5; font-weight:600;">Web Developer</div>
+            <p class="mb-3" style="color:#555;">
+                Spesialis pembuatan sistem pendukung keputusan, Ecommerce, dll. Berpengalaman dalam pengembangan aplikasi skripsi, tugas akhir, serta sistem informasi berbasis web.
+            </p>
+            <a href="https://wa.me/628123456780" target="_blank" class="btn btn-sm px-4 py-2" style="background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%); color: #232526; font-weight: 600; border-radius: 24px; box-shadow: 0 2px 8px rgba(127,127,213,0.09); letter-spacing: 1px; border: none;">
+                <i class="fab fa-whatsapp me-1"></i> Hubungi via WhatsApp
+            </a>
+            </div>
+        </div>
+         <!-- Anggota 3 -->
+        <div class="col-md-6 d-flex flex-column align-items-center" data-aos="fade-right">
+            <div class="position-relative" style="width:180px; height:240px;">
+            <img src="user11.jpeg" alt="Rifaldi Mahsyaf Azmi"
+                style="width:180px; height:240px; object-fit:cover; border-radius:18px; box-shadow:0 4px 24px rgba(127,127,213,0.13); border:4px solid #7f7fd5;">
+            <!-- Penunjuk garis ke bio -->
+            <svg width="100" height="60" style="position:absolute; left:100%; top:60%; z-index:2;" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="0,30 80,30 95,55" style="fill:none;stroke:#7f7fd5;stroke-width:3;stroke-linecap:round;stroke-linejoin:round"/>
+                <circle cx="95" cy="55" r="5" fill="#7f7fd5"/>
+            </svg>
+            </div>
+            <div class="mt-4 ms-md-5 ps-md-4" style="background:#fff; border-radius:16px; box-shadow:0 2px 12px rgba(127,127,213,0.07); padding:24px 20px 20px 32px; min-width:270px; position:relative;">
+            <h5 class="fw-bold mb-1" style="color:#232526;">Rifaldi Mahsyaf Azmi</h5>
+            <div class="mb-2" style="color:#7f7fd5; font-weight:600;">Web Developer</div>
+           <p class="mb-3" style="color:#555;">
+             Berfokus pada pengembangan aplikasi berbasis web . Memiliki pengalaman dalam membangun sistem informasi, dashboard administrasi, aplikasi inventaris, sistem donasi, serta implementasi keamanan data. Siap membantu pengembangan aplikasi skripsi, tugas akhir, maupun kebutuhan sistem bisnis yang modern dan responsif.
+           </p>
+            <a href="https://wa.me/62895413870968" target="_blank" class="btn btn-sm px-4 py-2" style="background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%); color: #232526; font-weight: 600; border-radius: 24px; box-shadow: 0 2px 8px rgba(127,127,213,0.09); letter-spacing: 1px; border: none;">
+                <i class="fab fa-whatsapp me-1"></i> Hubungi via WhatsApp
+            </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Layanan -->
+    <section id="layanan" class="py-5" style="background: #fff">
+      <div class="container">
+        <h2
+          class="text-center fw-bold mb-5"
+          style="color: #7f7fd5; letter-spacing: 1px"
+        >
+          Layanan Kami
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-3" data-aos="zoom-in">
+            <div
+              class="card p-4 text-center border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-code"
+                style="color: #7f7fd5; font-size: 2.5rem"
+              ></i>
+              <h5 class="fw-bold mt-3" style="color: #232526">
+                Pembuatan Website
+              </h5>
+              <p style="color: #555">
+                Website & sistem berbasis web untuk tugas kuliah atau bisnis.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+            <div
+              class="card p-4 text-center border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-graduation-cap"
+                style="color: #7f7fd5; font-size: 2.5rem"
+              ></i>
+              <h5 class="fw-bold mt-3" style="color: #232526">Joki Skripsi</h5>
+              <p style="color: #555">
+                Pengerjaan skripsi dari Bab 1 hingga analisis & implementasi.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+            <div
+              class="card p-4 text-center border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-file-lines"
+                style="color: #7f7fd5; font-size: 2.5rem"
+              ></i>
+              <h5 class="fw-bold mt-3" style="color: #232526">
+                Laporan Magang
+              </h5>
+              <p style="color: #555">
+                Penyusunan laporan kerja praktik sesuai standar kampus.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+            <div
+              class="card p-4 text-center border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-book"
+                style="color: #7f7fd5; font-size: 2.5rem"
+              ></i>
+              <h5 class="fw-bold mt-3" style="color: #232526">Tugas Kuliah</h5>
+              <p style="color: #555">
+                Tugas harian, makalah, presentasi, dan kebutuhan akademik
+                lainnya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kenapa Memilih Kami -->
+    <section id="alasan" class="py-5" style="background: #f3eaff">
+      <div class="container">
+        <h2
+          class="text-center fw-bold mb-5"
+          style="color: #7f7fd5; letter-spacing: 1px"
+        >
+          Kenapa Memilih Kami?
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-3" data-aos="fade-up">
+            <div
+              class="card why-card text-center border-0 shadow-sm"
+              style="background: #fff; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-clock"
+                style="color: #7f7fd5; font-size: 2.2rem"
+              ></i>
+              <h5 class="fw-bold mt-2" style="color: #232526">Tepat Waktu</h5>
+              <p style="color: #555">
+                Deadline ketat? Tenang, kami kerjakan sesuai jadwal.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="card why-card text-center border-0 shadow-sm"
+              style="background: #fff; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-star"
+                style="color: #7f7fd5; font-size: 2.2rem"
+              ></i>
+              <h5 class="fw-bold mt-2" style="color: #232526">
+                Kualitas Terjamin
+              </h5>
+              <p style="color: #555">
+                Hasil rapi, sesuai standar kampus & kebutuhanmu.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="card why-card text-center border-0 shadow-sm"
+              style="background: #fff; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-money-bill-wave"
+                style="color: #7f7fd5; font-size: 2.2rem"
+              ></i>
+              <h5 class="fw-bold mt-2" style="color: #232526">
+                Harga Terjangkau
+              </h5>
+              <p style="color: #555">
+                Layanan premium dengan biaya ramah kantong mahasiswa.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="card why-card text-center border-0 shadow-sm"
+              style="background: #fff; border-radius: 20px"
+            >
+              <i
+                class="fa-solid fa-pen-to-square"
+                style="color: #7f7fd5; font-size: 2.2rem"
+              ></i>
+              <h5 class="fw-bold mt-2" style="color: #232526">Bisa Revisi</h5>
+              <p style="color: #555">
+                Kami siap revisi sesuai arahan dosen pembimbing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portofolio -->
+    <section id="portofolio" class="py-5" style="background: #fff">
+      <div class="container">
+        <h2
+          class="text-center fw-bold mb-5"
+          style="color: #7f7fd5; letter-spacing: 1px"
+        >
+          Portofolio
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="flip-left">
+            <div
+              class="card border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <img
+                src="https://via.placeholder.com/600x400"
+                class="card-img-top"
+                alt="Project 1"
+                style="border-radius: 20px 20px 0 0"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: #7f7fd5">
+                  Sistem POS Toko Obat
+                </h5>
+                <p class="card-text" style="color: #555">
+                  Proyek sistem informasi POS inventory.
+                </p>
+                <a href="#" class="btn btn-sm mt-3" data-bs-toggle="modal" data-bs-target="#projectModal1" style="background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%); color: #232526; font-weight: 600; border-radius: 8px; box-shadow: 0 2px 8px rgba(127,127,213,0.09); border: none;">View Project</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+            <div
+              class="card border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <img
+                src="https://via.placeholder.com/600x400"
+                class="card-img-top"
+                alt="Project 2"
+                style="border-radius: 20px 20px 0 0"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: #7f7fd5">
+                  Laporan PKL
+                </h5>
+                <p class="card-text" style="color: #555">
+                  Laporan kerja praktik mahasiswa Teknik Informatika.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
+            <div
+              class="card border-0 shadow-sm"
+              style="background: #f8f9fa; border-radius: 20px"
+            >
+              <img
+                src="https://via.placeholder.com/600x400"
+                class="card-img-top"
+                alt="Project 3"
+                style="border-radius: 20px 20px 0 0"
+              />
+              <div class="card-body">
+                <h5 class="card-title fw-bold" style="color: #7f7fd5">
+                  Skripsi Analisis Data
+                </h5>
+                <p class="card-text" style="color: #555">
+                  Proyek penelitian menggunakan metode machine learning.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-5" style="background: #fff">
+      <div class="container">
+        <h2
+          class="text-center fw-bold mb-5"
+          style="color: #7f7fd5; letter-spacing: 1px"
+        >
+          Testimoni
+        </h2>
+        <div
+          id="carouselTestimoni"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+              <p class="lead" style="color: #232526">
+                “Skripsiku selesai tepat waktu, bahkan dosen pembimbing puas
+                dengan hasilnya.”
+              </p>
+              <h6 style="color: #7f7fd5">- Andi, Mahasiswa TI</h6>
+            </div>
+            <div class="carousel-item">
+              <p class="lead" style="color: #232526">
+                “Laporan PKL jadi rapi banget, sesuai format kampus. Mantap!”
+              </p>
+              <h6 style="color: #7f7fd5">- Sinta, Mahasiswa Akuntansi</h6>
+            </div>
+            <div class="carousel-item">
+              <p class="lead" style="color: #232526">
+                “Tugas kuliah yang ribet bisa dikerjakan dengan baik. Terima
+                kasih!”
+              </p>
+              <h6 style="color: #7f7fd5">- Riko, Mahasiswa Manajemen</h6>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselTestimoni"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselTestimoni"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      class="cta"
+      style="
+        background: linear-gradient(120deg, #7f7fd5 0%, #91eac9 100%);
+        color: #232526;
+        padding: 80px 0;
+        text-align: center;
+        border-radius: 0 0 32px 32px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      "
+    >
+      <div class="container" data-aos="zoom-in">
+        <h2 class="fw-bold">Selesaikan tugasmu sekarang juga!</h2>
+        <p class="mt-3">Klik tombol di bawah untuk konsultasi gratis.</p>
+        <a
+          href="https://wa.me/6281385393182"
+          class="btn btn-lg mt-3"
+          style="
+            background: linear-gradient(90deg, #7f7fd5 0%, #91eac9 100%);
+            color: #232526;
+            font-weight: 600;
+            border-radius: 32px;
+            box-shadow: 0 4px 24px rgba(127, 127, 213, 0.13);
+            letter-spacing: 1px;
+            border: none;
+          "
+        >
+          <i class="fab fa-whatsapp"></i> Chat WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="py-5" style="background: #fff">
+      <div class="container">
+        <h2
+          class="text-center fw-bold mb-5"
+          style="color: #7f7fd5; letter-spacing: 1px"
+        >
+          Kontak Kami
+        </h2>
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center">
+            <p style="color: #232526">
+              <i class="fab fa-whatsapp" style="color: #7f7fd5"></i> +62 813-8539-3182
+            </p>
+            <p style="color: #232526">
+              <i class="fa-solid fa-envelope" style="color: #7f7fd5"></i>
+              jokisolusi6@gmail.com
+            </p>
+            <p style="color: #232526">
+              <i class="fa-solid fa-location-dot" style="color: #7f7fd5"></i>
+              Medan Tuntungan, Indonesia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      style="
+        background: #f3eaff;
+        color: #7f7fd5;
+        padding: 20px 0;
+        text-align: center;
+        border-radius: 0 0 18px 18px;
+        margin-top: 32px;
+      "
+    >
+      <p>© 2025 JokiIn Aja. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModalLabel1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalLabel1">Website Sistem Informasi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-0">
+            <div id="projectCarousel1" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="8" aria-label="Slide 9"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="9" aria-label="Slide 10"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="10" aria-label="Slide 11"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="11" aria-label="Slide 12"></button>
+                <button type="button" data-bs-target="#projectCarousel1" data-bs-slide-to="12" aria-label="Slide 13"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/pos1.png" class="d-block w-100" alt="pos1" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos2.png" class="d-block w-100" alt="pos2" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos3.png" class="d-block w-100" alt="pos3" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos4.png" class="d-block w-100" alt="pos4" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos5.png" class="d-block w-100" alt="pos5" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos6.png" class="d-block w-100" alt="pos6" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos7.png" class="d-block w-100" alt="pos7" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos8.png" class="d-block w-100" alt="pos8" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos9.png" class="d-block w-100" alt="pos9" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos10.png" class="d-block w-100" alt="pos10" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos11.png" class="d-block w-100" alt="pos11" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos12.png" class="d-block w-100" alt="pos12" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+                <div class="carousel-item">
+                  <img src="assets/pos13.png" class="d-block w-100" alt="pos13" style="width:100%; height:auto; max-height:80vh; object-fit:contain;">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel1" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel1" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    </script>
+  </body>
+</html>
